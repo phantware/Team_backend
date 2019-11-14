@@ -1,0 +1,32 @@
+{
+  "name": "Team_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon --exec babel-node server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel server.js --out-dir build"
+  },
+  "repository": "https://github.com/phantware/Team_backend.git",
+  "author": "phantware <phantmoney2011@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "cloudinary": "^1.16.0",
+    "dot-env": "^0.0.1",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/register": "^7.7.0",
+    "eslint": "^6.6.0",
+    "nodemon": "^1.19.4"
+  }
+}

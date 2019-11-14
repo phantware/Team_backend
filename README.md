@@ -1,2 +1,2 @@
 # Team_backend
-Teamwork is an internal social network for employees of an organization.
+Teamwork is an internal social network for employees of an organization...
