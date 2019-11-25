@@ -16,20 +16,20 @@ class UserValidator {
     if (email === undefined) {
       return res.status(400).json({
         status: 'Bad Requst',
-        message: 'Email cannot be undefined'
+        message: 'email cannot be undefined'
       });
     }
     if (typeof email !== 'string') {
       return res.status(400).json({
         status: 'Bad Request',
-        message: 'Email should be a string'
+        message: 'email should be a string'
       });
     }
     email = email.toLowerCase().trim();
     if (email === '') {
       return res.status(400).json({
         status: 'Bad Request',
-        message: 'Email field cannot be empty'
+        message: 'email field cannot be empty'
       });
     }
     /* eslint-disable no-useless-escape */
@@ -37,55 +37,56 @@ class UserValidator {
     if (!emailVerifier.test(email)) {
       return res.status(400).json({
         status: 'Bad Request',
-        message: 'Email format is invalid'
+        message: 'email format is invalid'
       });
+
     }
     if (email.length < 10 || email.length > 30) {
       return res.status(400).json({
         status: 'Bad Request',
-        message: 'Email should be 10 to 30 characters long'
+        message: 'email should be 10 to 30 characters long'
       });
     }
-    const findByEmail = 'SELECT * FROM employee WHERE email = $1';
+    const findByEmail = 'SELECT * FROM employees WHERE email = $1';
     const value = [email];
     pool.query(findByEmail, value)
       .then((result) => {
         if (result.rowCount !== 0) {
           return res.status(409).json({
             status: 'Fail',
-            message: 'Email already exists!'
+            message: 'email already exists!'
           });
         }
         // Password Validations
         if (password === undefined) {
           return res.status(400).json({
             status: 'Bad Request',
-            message: 'Password cannot be undefined'
+            message: 'password cannot be undefined'
           });
         }
         if (typeof password !== 'string') {
           return res.status(400).json({
             status: 'Bad Request',
-            message: 'Password should be a string'
+            message: 'password should be a string'
           });
         }
         password = password.trim();
         if (password === '') {
           return res.status(400).json({
             status: 'Bad Request',
-            message: 'Password field cannot be empty'
+            message: 'password field cannot be empty'
           });
         }
         if (typeof password !== 'string') {
           return res.status(400).json({
             status: 'Bad Request',
-            message: 'Password should be a string'
+            message: 'password should be a string'
           });
         }
         if (password.length < 8 || password.length > 20) {
           return res.status(400).json({
             status: 'Bad Request',
-            message: 'Password should be 8 to 20 characters long'
+            message: 'password should be 8 to 20 characters long'
           });
         }
 
@@ -93,20 +94,20 @@ class UserValidator {
     if (username === undefined) {
       return res.status(400).json({
         status: 'Bad Request',
-        message: 'Username cannot be undefined'
+        message: 'username cannot be undefined'
       });
     }
     if (typeof username !== 'string') {
       return res.status(400).json({
         status: 'Bad Request',
-        message: 'Username should be a string'
+        message: 'username should be a string'
       });
     }
     username = username.toLowerCase().trim();
     if (username === '') {
       return res.status(400).json({
         status: 'Bad Request',
-        message: 'Username field cannot be empty'
+        message: 'username field cannot be empty'
       });
     }
 
@@ -114,20 +115,20 @@ class UserValidator {
 if (firstname === undefined) {
     return res.status(400).json({
       status: 'Bad Request',
-      message: 'Firstname cannot be undefined'
+      message: 'firstname cannot be undefined'
     });
   }
   if (typeof firstname !== 'string') {
     return res.status(400).json({
       status: 'Bad Request',
-      message: 'Firstname should be a string'
+      message: 'firstname should be a string'
     });
   }
   firstname = firstname.toLowerCase().trim();
   if (firstname === '') {
     return res.status(400).json({
       status: 'Bad Request',
-      message: 'Firstname field cannot be empty'
+      message: 'firstname field cannot be empty'
     });
   }
 
@@ -135,20 +136,20 @@ if (firstname === undefined) {
   if (lastname === undefined) {
     return res.status(400).json({
       status: 'Bad Request',
-      message: 'Lastname cannot be undefined'
+      message: 'lastname cannot be undefined'
     });
   }
   if (typeof lastname !== 'string') {
     return res.status(400).json({
       status: 'Bad Request',
-      message: 'Lastname should be a string'
+      message: 'lastname should be a string'
     });
   }
   lastname = lastname.toLowerCase().trim();
   if (lastname === '') {
     return res.status(400).json({
       status: 'Bad Request',
-      message: 'Lastname field cannot be empty'
+      message: 'lastname field cannot be empty'
     });
   }
 
@@ -267,13 +268,13 @@ if (address === '') {
     if (email === undefined) {
       return res.status(400).json({
         status: 'Fail',
-        message: 'Email cannot be undefined'
+        message: 'email cannot be undefined'
       });
     }
     if (typeof email !== 'string') {
       return res.status(400).json({
         status: 'Fail',
-        message: 'Email should be a string'
+        message: 'email should be a string'
       });
     }
     email = email.toLowerCase().trim();
@@ -294,20 +295,20 @@ if (address === '') {
         if (password === undefined) {
           return res.status(401).json({
             status: 'Fail',
-            message: 'Password cannot be undefined'
+            message: 'password cannot be undefined'
           });
         }
         if (typeof password !== 'string') {
           return res.status(400).json({
             status: 'Fail',
-            message: 'Password should be a string'
+            message: 'password should be a string'
           });
         }
         password = password.trim();
         if (password === '') {
           return res.status(401).json({
             status: 'Fail',
-            message: 'Password cannot be empty'
+            message: 'password cannot be empty'
           });
         }
         
